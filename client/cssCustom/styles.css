@@ -1,0 +1,66 @@
+.toolbar-border-radius {
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.header-2 {
+    height: 40px;
+    z-index: 2;
+    margin-top: -10px;
+    background-color: white !important;
+    border: 1px solid black;
+}
+.header-1 {
+    height: 100px;
+    z-index: 10;
+}
+md-toolbar > md-tabs > md-tabs-wrapper {
+    background-color: white !important;
+}
+.header-3 {
+    min-height: 100px;
+    background-color: rgba(234, 237, 237, 0);
+    width: 100%;
+}
+.logo {
+    font: 46px red;
+    border-bottom: 1px solid;
+    font-family: fantasy;
+}
+.nodeImage {
+    width: 34px;
+}
+.tagLine {
+    float: left;
+    padding-left: 45%;
+    font-family: monospace;
+}
+.menuList {
+    list-style-type: none;
+    margin-top: 10%;
+    color: #666666;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.menuList li {
+    display: inline;
+    padding: 10px;
+}
+.contentpane-1 {
+    min-height: 300px;
+    background-color: #5FA35F;
+}
+.contentpane-1-label{
+font-size: 278%;
+    color: aliceblue;
+}
+.contentpane-1-label label{
+padding-top: 10px;
+}
+.computerImgs{
+width: 300px;
+    
+}
