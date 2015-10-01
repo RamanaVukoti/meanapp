@@ -8,9 +8,9 @@
      //REST API calls
 
 
-     RestApi.query(function(result) {
-         customUtilFactory.print(result);
-     })
+     //RestApi.query(function(result) {
+       //  customUtilFactory.print(result);
+     //})
 
 
 
