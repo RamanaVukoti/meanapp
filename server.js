@@ -10,6 +10,8 @@ var bodyParser=require('body-parser');
 
 app=express();
 
+app.set('port', (process.env.PORT || 5000));
+
 
 //connect to DB on server startup
 //mongoose.connect("mongodb://localhost:27017/register");
@@ -62,7 +64,7 @@ app.use('/images',express.static(__dirname+'/client/images'));
 
 
 
-app.listen(1290,function(){
+app.listen(app.get('port'),function(){
 
-console.log('Mean APP running  on port 1290');
+console.log('Mean APP running  on port ',app.get('port'));
 });
