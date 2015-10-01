@@ -38,6 +38,12 @@ resp.sendFile(__dirname+"/client/views/index.html");
 
 });
 
+app.get('/',function(req,resp){
+resp.sendFile(__dirname+"/client/views/index.html");
+    
+
+});
+
 //REST API calls
 
 app.get('/api',meanControllerServer.getList);
