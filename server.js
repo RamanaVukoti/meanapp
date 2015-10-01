@@ -12,7 +12,7 @@ app=express();
 
 
 //connect to DB on server startup
-mongoose.connect("mongodb://localhost:27017/register");
+//mongoose.connect("mongodb://localhost:27017/register");
 
 //body pasrerr ( no need )
 app.use(bodyParser.urlencoded({
