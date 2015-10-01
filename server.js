@@ -13,7 +13,7 @@ app=express();
 
 //connect to DB on server startup
 //mongoose.connect("mongodb://localhost:27017/register");
- HEAD
+ 
 
 mongoose.connect("mongodb://RAMANAVUKOTI:RAM$akash143@ds037283.mongolab.com:37283/meandb");
 
