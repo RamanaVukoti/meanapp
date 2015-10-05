@@ -13,11 +13,20 @@ app=express();
 app.set('port', (process.env.PORT || 5000));
 
 
-//connect to DB on server startup
-//mongoose.connect("mongodb://localhost:27017/register");
- 
 
-mongoose.connect("mongodb://RAMANAVUKOTI:RAM$akash143@ds037283.mongolab.com:37283/meandb");
+
+//if u do not specify the all static files then node wil look into the public folder automatically
+//(recommendde)
+//app.use(express.static(__dirname+"/public"));
+
+//connect to DB on server startup
+//local
+mongoose.connect("mongodb://localhost:27017/register",function(suc){
+    console.log("succesfully connected");
+});
+ 
+//remote DB - mngolab
+//mongoose.connect("mongodb://RAMANAVUKOTI:RAM$akash143@ds037283.mongolab.com:37283/meandb");
 
 
 
@@ -28,7 +37,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 //importing server controller( 'node-back-end controller' )- jst like java,, provindig annotation to  spring controller
-var meanControllerServer=require('./server/controllers/serverController')
+//var meanControllerServer=require('./server/controllers/serverController')
 
 
 //welcome file
@@ -38,6 +47,13 @@ resp.sendFile(__dirname+"/client/views/index.html");
 
 });
 
+app.get('/index2.htm',function(req,resp){
+resp.sendFile(__dirname+"/client/views/index2.html");
+    
+
+});
+
+
 app.get('/',function(req,resp){
 resp.sendFile(__dirname+"/client/views/index.html");
     
@@ -46,8 +62,13 @@ resp.sendFile(__dirname+"/client/views/index.html");
 
 //REST API calls
 
-app.get('/api',meanControllerServer.getList);
-app.post('/api',meanControllerServer.create);
+var routeConfig=require('./client/jsCustom/angular/routes');
+routeConfig.routesConfig(app);
+
+/*app.get('/api',meanControllerServer.getList2);
+app.post('/api',meanControllerServer.create2);
+app.post('/api/postData',meanControllerServer.create);
+app.get('/api/getData',meanControllerServer.getList);*/
 
 
 
@@ -67,6 +88,8 @@ app.use('/cssCustom',express.static(__dirname+'/client/cssCustom'));
 app.use('/jsCustom',express.static(__dirname+'/client/jsCustom'));
 
 app.use('/images',express.static(__dirname+'/client/images'));
+
+app.use('/json',express.static(__dirname+'/client/json'));
 
 
 

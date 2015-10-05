@@ -1,6 +1,9 @@
 var mongoose=require('mongoose');
 
-module.exports.UserSchemaStructure=mongoose.model('user4',{
-title:String,
-email:String,
+module.exports.UserSchemaStructure=mongoose.model('registrationdb',{
+uname:String,
+pwd:String,
+name:String,
+email:String
+
 });

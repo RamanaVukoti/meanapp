@@ -7,7 +7,18 @@
     <meta name="Author" content="" />
 
     <link rel="stylesheet" href="/cssLib/material/angular-material.css">
+    <link rel="stylesheet" href="/cssLib/other/bootstrap.min.css">
+    <link rel="stylesheet" href="/cssLib/other/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
     <link rel="stylesheet" href="/cssCustom/styles.css">
+
+
+
+
+
 
 
     <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.css">-->
@@ -20,138 +31,340 @@
 <body>
     <div ng-controller="meanController">
 
-        <div>
 
-            <!-- <md-toolbar style="margin-left:0.5%; width:99%" class="md-accent toolbar-border-radius" >
+
+        <!-- <md-toolbar style="margin-left:0.5%; width:99%" class="md-accent toolbar-border-radius" >
                 <h2>
         <span>Mean App</span>
       </h2>
             </md-toolbar>-->
-            <div layout="row" flex layout-align="center center" class="header-3">
 
-                <div flex="20" flex-sm="0" ></div>
-                <div flex="20" flex-sm="20" flex-md="20">
+
+        <md-toolbar layout-fill md-scroll-shrink=true md-shrink-speed-factor=0.25 style=" color:black;background-color: rgba(234, 237, 237, 0);" class="header-3">
+            <div layout="row" flex layout-align="center center">
+
+                <div flex="10" flex-sm="0"></div>
+                <div flex="30" flex-sm="20" flex-md="20">
                     <span class="logo">CapitalTeam</span>
                     <img class="nodeImage" src="/images/nodeimages.jpg" />
                     <span class="tagLine">code for change</span>
                 </div>
-                <div flex="20" flex-sm="0">
+
+                <div flex="10" flex-sm="0">
 
                 </div>
 
-                <div align="right" flex="40" flex-sm="80" flex-md="80">
-                    <ul class="menuList">
-                        <li>Home</li>
-                        <li>About us</li>
-                        <li>Projects</li>
-                        <li>Technologies</li>
-                        <li>Login</li>
-                        <li>Register</li>
-                        
+                <div style=" color:black" align="right" flex="50" flex-sm="80" flex-md="80" layout layout-align="end end">
+                    <div>
+                        <ul class="menuList">
+                            <li>
+                                <md-button>Home</md-button>
+                            </li>
+                            <li>
+                                <a href="#aboutUs">
+                                    <md-button>About us</md-button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#team">
+                                    <md-button>Team</md-button>
+                                </a>
+                            </li>
+                            <li>
+                                <md-button>Projects</md-button>
+                            </li>
+                            <li>
+                                <md-button>Technologies</md-button>
+                            </li>
 
-                    </ul>
+                            <li ng-hide="loggedin" >
+                                <a href="#forms">
+                                    <md-button>Login/Register</md-button>
+                                </a>
+                                 
+                            </li>
+                            
+                            <li ng-show="loggedin">
+                               <!--  <a href="#forms">
+                                    <md-button>{{loggedInUser}}</md-button>
+                                </a>    -->
+                                 <md-menu md-offset="0 70">
+          <md-button aria-label="Open demo menu" ng-click="$mdOpenMenu($event)">
+            {{loggedInUser}}  <i class="fa fa-cog"></i>
+          </md-button>
+                                     
+          <md-menu-content class="logoutr-menu-content" width="2">
+            <md-menu-item >
+                <md-button ng-click="logout()"> <span md-menu-align-target>logout</span> </md-button>
+            </md-menu-item>
+               <md-menu-item >
+                <md-button ng-click="ctrl.announceClick($index)"> <span md-menu-align-target>Profile</span> </md-button>
+            </md-menu-item>
+              
+          </md-menu-content>
+        </md-menu>
+                            </li>
+                            
+                           
+                        </ul>
+                    </div>
                 </div>
+
 
             </div>
-            <div layout="row" layout-align="center center"  class="contentpane-1" flex>
+        </md-toolbar>
+
+        <md-content>
+            <div layout="row" layout-align="center center" class="contentpane-1" flex>
                 <div flex="20" flex-sm="0" flex-md="0">
-                    
+
                 </div>
-                <div flex="40" class="contentpane-1-label" flex-sm="40" flex-md="40" >
-                    
-                        <label > &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Build APIS,</label><br>
-                        <label >  Explore n Implement </label><br>
-                        <label style="color:black"> &nbsp;&nbsp;&nbsp; Towards Change</label> <br>
-                    
+                <div flex="40" class="contentpane-1-label" flex-sm="40" flex-md="40">
+
+                    <label>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Build APIS,</label>
+                    <br>
+                    <label>Explore n Implement</label>
+                    <br>
+                    <label style="color:black">&nbsp;&nbsp;&nbsp; Towards Change</label>
+                    <br>
+
                 </div>
-                
+
                 <div flex="40" flex-sm="60" flex-md="60">
-                    <img class="computerImgs" src="/images/capitalDev.png">
+                    <!--<img class="computerImgs" src="/images/capitalDev.png">-->
+                    <img class="computerImgs img-responsive" src="/images/team-success-pictures-11.png">
+
                 </div>
-                
-            
+
+
             </div>
-
-            <!-- <md-toolbar style="margin-left:0.5%; width:99%" class="md-mediumtoolbar-border-radius" >
-                <h2>
-        <span>Mean App</span>
-      </h2>
-            </md-toolbar>-->
+        </md-content>
 
 
-            <md-content class="md-padding">
-                <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always">
-                    <md-tab label="one">
-                        <md-content class="md-padding" layout="row" layout-margin layout-wrap>
-                            <div flex="30"></div>
-                            <md-card flex="40">
-                                <md-card-content>
-                                    <form ng-submit="loginFunc()">
-                                        <md-input-container>
-                                            <label>Title</label>
-                                            <input ng-model="login.title">
-                                        </md-input-container>
-                                        <md-input-container>
-                                            <label>Email</label>
-                                            <input ng-model="login.email" type="email">
-                                        </md-input-container>
-                                        <md-button type="submit">Register</md-button>
-                                    </form>
-                                </md-card-content>
-                            </md-card>
-                            <div flex="30"></div>
-                        </md-content>
-                    </md-tab>
-                    <md-tab label="two">
-                        <md-content class="md-padding">
-                            <h1 class="md-display-2">Register</h1>
-                            <p>Register OCntent</p>
-                        </md-content>
-                    </md-tab>
-                    <md-tab label="three">
-                        <md-content class="md-padding">
-                            <h1 class="md-display-2">Shop here</h1>
-                            <p>Shop here</p>
-                        </md-content>
-                    </md-tab>
-                </md-tabs>
-                <md-content class="md-padding">
-                    <md-card>
-                        <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-                        <md-card-content>
-                            <h2 class="md-title">TEST -{{name}}</h2>
-                            <p>
-                                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                            </p>
-                        </md-card-content>
-                        <div class="md-actions" layout="row" layout-align="end center">
-                            <md-button>Action 1</md-button>
-                            <md-button>Action 2</md-button>
+
+
+
+
+
+        <md-content class="md-padding">
+
+
+
+            <md-card id="aboutUs">
+                <md-toolbar md-scroll-shrink class="md-hue-1" style="color:black;background-color:rgb(151, 238, 234)">
+                    <div class="md-toolbar-tools">
+                        <h3>
+        <span>About</span>
+      </h3>
+                    </div>
+                </md-toolbar>
+                <md-card-content layout layout="row">
+                    <div flex="50">
+                        <img class="img-responsive" src="/images/team_2.jpg" />
+                    </div>
+                    <div flex="50">
+                        <h2>Welcome to Capital Team</h2>
+                        <div>{{testname}}</div>
+                        <div ng-repeat="item in records">{{item.name}}</div>
+                       <!-- This is a great place to introduce your company or project and describe what you do. This about page features general company information, employee bios, and other helpful elements. Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.-->
+
+                    </div>
+                </md-card-content>
+                <div layout="row" layout-align="end center">
+
+                </div>
+            </md-card>
+
+            <md-card id="team">
+                <md-toolbar md-scroll-shrink class="md-hue-1" style="color:black;background-color:rgb(151, 238, 234)">
+                    <div class="md-toolbar-tools">
+                        <h3>
+        <span>Our Team</span>
+      </h3>
+                    </div>
+                </md-toolbar>
+                <md-card-content layout layout="row" layout-align="center center">
+                    <div flex="25" layout layout="column" layout-align="center center">
+
+                        <div>
+                            <img class="img-responsive img-circle" src="/images/musantho.jpg">
+                            <div layout layout-align="center center" layout-padding>Team Leder</div>
+                            <div layout layout-align="center center" layout-padding><a href="https://www.facebook.com/santhosh.muktha?fref=ts" target="_blank"><i class="fa fa-2x fa-facebook-square icons"></i></a><a href=""><i class="fa fa-2x fa-twitter-square icons"></i></a> 
+                                <a href="http://wwwin-tools.cisco.com/dir/details/musantho" target="_blank">
+                                    <img src="/images/ciscoIcon.jpg" style="height: 22px" ; class="img-responsive">
+                                </a>
+                            </div>
                         </div>
-                    </md-card>
-                    <br/>
-                    <md-card>
-                        <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-                        <md-card-content>
-                            <h2 class="md-title">Paracosm</h2>
-                            <p>
-                                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                            </p>
-                        </md-card-content>
-                    </md-card>
-                    <br/>
-                    <md-card>
-                        <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-                        <md-card-content>
-                            <h2 class="md-title">Paracosm</h2>
-                            <p>
-                                The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-                            </p>
-                        </md-card-content>
-                    </md-card>
-                </md-content>
+
+
+                    </div>
+
+
+
+
+                    <div flex="25" layout layout="column" layout-align="center center">
+
+                        <div>
+                            <img class="img-responsive img-circle" src="/images/jagdeesh.jpg">
+                            <div layout layout-align="center center" layout-padding>Senior Developer</div>
+                            <div layout layout-align="center center" layout-padding><a href="https://www.facebook.com/profile.php?id=1042704717&fref=ts" target="_blank"><i class="fa fa-2x fa-facebook-square icons"></i></a><a href=""><i class="fa fa-2x fa-twitter-square icons"></i></a> 
+                                <a href="http://wwwin-tools.cisco.com/dir/details/jpalania" target="_blank">
+                                    <img src="/images/ciscoIcon.jpg" style="height: 22px" ; class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div flex="25" layout layout="column" layout-align="center center">
+
+                        <div>
+                            <img class="img-responsive img-circle" src="/images/skotagir.jpg">
+                            <div layout layout-align="center center" layout-padding>Team Member</div>
+                            <div layout layout-align="center center" layout-padding><a href="https://www.facebook.com/profile.php?id=1042704717&fref=ts" target="_blank"><i class="fa fa-2x fa-facebook-square icons"></i></a><a href=""><i class="fa fa-2x fa-twitter-square icons"></i></a> 
+                                <a href="http://wwwin-tools.cisco.com/dir/details/skotagir" target="_blank">
+                                    <img src="/images/ciscoIcon.jpg" style="height: 22px" ; class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div flex="25" layout layout="column" layout-align="center center">
+
+                        <div>
+                            <img class="img-responsive img-circle" src="/images/musantho.jpg">
+                            <div layout layout-align="center center" layout-padding>Team Member</div>
+                            <div layout layout-align="center center" layout-padding><a href="https://www.facebook.com/profile.php?id=1042704717&fref=ts" target="_blank"><i class="fa fa-2x fa-facebook-square icons"></i></a><a href=""><i class="fa fa-2x fa-twitter-square icons"></i></a> 
+                                <a href="http://wwwin-tools.cisco.com/dir/details/vvukoti" target="_blank">
+                                    <img src="/images/ciscoIcon.jpg" style="height: 22px" ; class="img-responsive">
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </md-card-content>
+                <div layout="row" layout-align="end center">
+
+                </div>
+            </md-card>
+
+
+            <div id="forms" layout="row">
+                <div flex="50">
+                    <div layout="column" style="background-color:#61A2E4">
+                        <div flex="50" flex-sm=100 layout="row " layout-align="center center">
+                            <img class="img-responsive" src="/images/flat-avatar.png" />
+
+                        </div>
+                        <div flex="50" style="background-color:#61A2E4">
+                            <md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always">
+                                <md-tab label="Login">
+                                    <md-content style="background-color:#61A2E4" class="md-padding" layout="row">
+                                        <div flex="30"></div>
+                                        <md-card flex="40">
+                                            <md-card-content>
+                                                <form name="loginform" ng-submit="loginFunction()" novalidate>
+                                                    <md-input-container>
+                                                        <label>Username</label>
+                                                        <input ng-model="login.uname" type="text" required>
+                                                    </md-input-container>
+                                                    <md-input-container>
+                                                        <label>Password</label>
+                                                        <input ng-model="login.pwd" type="text" required>
+                                                    </md-input-container>
+                                                    <div layout align="right">
+                                                        <md-button ng-disabled="loginform.$invalid" type="submit" class="md-accent md-raised md-hue-1">Login</md-button>
+                                                    </div>
+                                                </form>
+                                            </md-card-content>
+                                        </md-card>
+                                        <div flex="30"></div>
+                                    </md-content>
+                                </md-tab>
+                                <md-tab label="Register">
+                                    <md-content style="background-color:#61A2E4" class="md-padding" layout="row">
+                                        <div flex="10"></div>
+                                        <md-card flex="80">
+                                            <md-card-content>
+                                                <form name="regForm" ng-submit="registration()" novalidate>
+                                                    <div layout flex="50">
+                                                        <md-input-container flex="50">
+                                                            <label>User Name</label>
+                                                            <input ng-model="reg.uname" ng-minlength="4" type="text" required>
+                                                        </md-input-container>
+
+                                                        <md-input-container flex="50">
+                                                            <label>Password</label>
+                                                            <input ng-model="reg.pwd" type="text" required>
+                                                        </md-input-container>
+
+                                                    </div>
+                                                    <div layout flex="50">
+                                                        <md-input-container flex="50">
+                                                            <label>Name</label>
+                                                            <input ng-model="reg.name" type="text" required>
+                                                        </md-input-container>
+                                                        <md-input-container flex="50">
+                                                            <label>email</label>
+                                                            <input ng-model="reg.email" type="email" required>
+                                                        </md-input-container>
+
+
+                                                    </div>
+                                                    <div layout layout-align="end end" flex="50">
+
+
+                                                        <md-button ng-disabled="regForm.$invalid" type="submit" class="md-accent md-raised md-hue-1">Register</md-button>
+                                                    </div>
+                                                </form>
+                                            </md-card-content>
+                                        </md-card>
+                                        <div flex="10"></div>
+                                    </md-content>
+                                </md-tab>
+
+                            </md-tabs>
+                        </div>
+
+                    </div>
+                </div>
+                <div flex="50" flex-sm=100 layout layout-align="center center" style="background-color:#61A2E4">
+                    <!--<img src="/images/Success_mod2.png" />-->
+                    <img class="img-responsive" src="/images/Success-In-Network-Marketing2.png" width:80%;height:80% />
+
+
+                </div>
+            </div>
+            <md-content class="md-padding">
+
+                <br/>
+                <md-card>
+                    <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
+                    <md-card-content>
+                        <h2 class="md-title">Paracosm</h2>
+                        <p>
+                            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                        </p>
+                    </md-card-content>
+                </md-card>
+                <br/>
+                <md-card>
+                    <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
+                    <md-card-content>
+                        <h2 class="md-title">Paracosm</h2>
+                        <p>
+                            The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                        </p>
+                    </md-card-content>
+                </md-card>
             </md-content>
-        </div>
+        </md-content>
+
 
     </div>
 
@@ -161,6 +374,10 @@
 <script type="text/javascript" src="/jsLib/material/angular-animate.1.3.15.js"></script>
 <script type="text/javascript" src="/jsLib/material/angular-aria.1.3.5.js"></script>
 <script type="text/javascript" src="/jsLib/material/angular-material.0.11.0.js"></script>
+
+<script type="text/javascript" src="/jsLib/other/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/jsLib/other/jquery-ui.js"></script>
+<script type="text/javascript" src="/jsLib/other/bootstrap.min.js"></script>
 
 
 <script type="text/javascript" src="/jsCustom/angular/directives.js"></script>

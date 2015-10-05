@@ -40,14 +40,14 @@ md-toolbar > md-tabs > md-tabs-wrapper {
 }
 .menuList {
     list-style-type: none;
-    margin-top: 10%;
+    padding-top: 3%;
     color: #666666;
     font-weight: bold;
     font-family: sans-serif;
 }
 .menuList li {
     display: inline;
-    padding: 10px;
+    /*padding: 10px;*/
 }
 .contentpane-1 {
     min-height: 300px;
@@ -63,4 +63,17 @@ padding-top: 10px;
 .computerImgs{
 width: 300px;
     
+}
+.menuList > li >button{
+color: red;
+}
+md-toolbar:not(.md-menu-toolbar) .md-button{
+color: black;
+}
+.icons{
+padding: 10px;
+}
+.logoutr-menu-content{
+    border-radius: 10px;
+    background-color: beige;
 }

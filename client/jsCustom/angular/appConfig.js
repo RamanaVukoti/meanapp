@@ -8,3 +8,5 @@ var app = angular.module('meanApp');
 app.controller('meanController',meanController);
 
 angular.module('meanApp').factory('customUtilFactory',customUtilFactory);
+
+angular.module('meanApp').factory('httpSevice',httpSevice);

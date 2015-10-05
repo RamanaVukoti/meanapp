@@ -16,4 +16,36 @@ function customUtilFactory($mdDialog,$window) {
         }
 
     };
-}
+};
+
+
+ function httpSevice($http,customUtilFactory) {
+
+    return {
+        getData: function(url) {
+            customUtilFactory.print("get data -- at clinet side")
+            return $http.get(url);
+        },
+        postData: function(url,data) {
+            customUtilFactory.print("postData -- at clinet side")
+            return $http.post(url, data);
+        },
+        deleteData: function(url) {
+            customUtilFactory.print("deleteData -- at clinet side")
+            return $http.delete(url);
+        },
+        updateData: function(url,data) {
+            customUtilFactory.print("updateData -- at clinet side")
+            return $http.post("/api/postDataData", data);
+        },
+        
+        findData: function(url,data) {
+            customUtilFactory.print("updateData -- at clinet side")
+            
+            return $http.put(url,data);
+        },
+
+
+    };
+
+};
