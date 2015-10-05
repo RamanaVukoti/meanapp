@@ -21,12 +21,12 @@ app.set('port', (process.env.PORT || 5000));
 
 //connect to DB on server startup
 //local
-mongoose.connect("mongodb://localhost:27017/register",function(suc){
+/*mongoose.connect("mongodb://localhost:27017/register",function(suc){
     console.log("succesfully connected");
-});
+});*/
  
 //remote DB - mngolab
-//mongoose.connect("mongodb://RAMANAVUKOTI:RAM$akash143@ds037283.mongolab.com:37283/meandb");
+mongoose.connect("mongodb://RAMANAVUKOTI:RAM$akash143@ds037283.mongolab.com:37283/meandb");
 
 
 
