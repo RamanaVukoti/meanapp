@@ -70,6 +70,9 @@ module.exports.findUser = function(req, resp) {
 
 
 module.exports.findUser = function(req, resp) {
+    
+    
+    
   
     daoLayer.UserSchemaStructure.find( req.body,function(err, result) {
         

@@ -7,10 +7,27 @@ var mongoose=require('mongoose');
 var bcrypt=require('bcrypt-node');
 var bodyParser=require('body-parser');
 
+var superSecret = 'mymeanapp';
+
+var jwt = require('jsonwebtoken');
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+var env=require('./server/config/config')
+var dbModule=require('./server/config/dbUtil')
+
+
+
 
 app=express();
 
-app.set('port', (process.env.PORT || 5000));
+/*
+app.use(clientSessions({
+  secret: '0GBlJZ9EKBt2Zbi2flRPvztczCewBxXK' // set this to a long random string!
+}));
+*/
+
+app.set('port', (process.env.PORT || env.appPort));
 
 
 
@@ -21,12 +38,13 @@ app.set('port', (process.env.PORT || 5000));
 
 //connect to DB on server startup
 //local
-/*mongoose.connect("mongodb://localhost:27017/register",function(suc){
+/*mongoose.connect(config.dbUrl,function(suc){
     console.log("succesfully connected");
 });*/
+var db =dbModule.getConnection();
  
 //remote DB - mngolab
-mongoose.connect("mongodb://RAMANAVUKOTI:RAM$akash143@ds037283.mongolab.com:37283/meandb");
+//mongoose.connect("mongodb://RAMANAVUKOTI:RAM$akash143@ds037283.mongolab.com:37283/meandb");
 
 
 

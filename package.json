@@ -11,7 +11,9 @@
   "dependencies": {
     "bcrypt-node": "^0.1.0",
     "body-parser": "^1.14.1",
+    "client-sessions": "^0.7.0",
     "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.0",
     "module": "0.0.1",
     "mongoose": "^4.1.8"
   }
