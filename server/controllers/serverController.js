@@ -47,7 +47,11 @@ module.exports.getList_old = function(req, resp) {
 }
 
 module.exports.getList = function(req, resp) {
-    daoLayer.UserSchemaStructure.find(function(err, result) {
+    
+    //daoLayer.UserSchemaStructure.find({},function(err, result) { (any syntax is fine)
+    
+    
+    daoLayer.UserSchemaStructure.find({},function(err, result) {
         console.log(result);
        // var resultMo={data:result}
         resp.json(result);
