@@ -2,7 +2,7 @@
   "name": "mean-test-app",
   "version": "1.0.0",
   "description": "setup-intial",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
     "express": "^4.13.3",
     "jsonwebtoken": "^5.4.0",
     "module": "0.0.1",
-    "mongoose": "^4.1.8"
+    "mongoose": "^4.1.8",
+    "nodemon": "^1.9.1"
   }
 }

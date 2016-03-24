@@ -1,4 +1,11 @@
  function meanController($scope, $resource, $mdDialog, customUtilFactory, httpSevice, $q, $http) {
+$scope.smoothScroll=function(event){
+    $('html, body').animate({
+        scrollTop: $( $(event.currentTarget).attr('href') ).offset().top
+    }, 500);
+    return false;
+};
+
 
      $scope.loggedin=false;
      $scope.login = {};
@@ -57,7 +64,7 @@
      promise.success(function(resp) {
          customUtilFactory.print(resp);
          $scope.records=resp;
-         $scope.testname="Ramana Vukoti"
+         $scope.testname="Ramana Vukoti";
        //  customUtilFactory.showAlert(resp.statusMsg);
 
      });
@@ -65,7 +72,7 @@
          customUtilFactory.print(resp.respData);
          customUtilFactory.showAlert(resp.statusMsg);
 
-     })
+     });
 
      /* var promise = httpSevice.deleteData("/api/deleteData/ssss");
      promise.success(function(resp) {
@@ -92,7 +99,7 @@
              customUtilFactory.print(resp);
              customUtilFactory.showAlert(resp.statusMsg);
 
-         })
+         });
 
          /* var restApiInst = new RestApi();
          restApiInst.data = $scope.login*/
@@ -103,13 +110,13 @@
          });*/
 
 
-     }
+     };
 
      $scope.logout=function(){
          $scope.loggedin=false;
           $scope.loggedInUser=null;
      
-     }
+     };
      $scope.loginFunction=function() {
          
          
@@ -120,7 +127,7 @@
               customUtilFactory.showAlert(resp[0].name+" -- Logged in successfully");
                  $scope.loggedInUser=resp[0].name;
                  
-                 console.log(resp[0].name +" name is ")
+                 console.log(resp[0].name +" name is ");
                  
                  $scope.loggedin=true;
                 
